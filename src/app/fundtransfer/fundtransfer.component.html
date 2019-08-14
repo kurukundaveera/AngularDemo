@@ -1,0 +1,29 @@
+<div class="container col-md-4 login-form" style="border-radius: 0.5em;
+margin: 0 auto;
+display: block;
+background-color: #ccc !important;
+padding: 6em;">
+<h2 style="margin: 0 auto; display: block; margin-top: -1em;
+margin-bottom: 1em;">Funds Transfer</h2>
+<form [formGroup]="transfer" >
+<div>
+  <label for="toAccount">To Account</label>
+  <select class="field form-control" formControlName="toAccount" class="input-box" [(ngModel)]="selectedToAccount">
+    <option *ngFor="let toAccount of fundTransfer">{{toAccount.accountNumber}}</option>
+  </select>
+</div>
+<div>
+<label for="amount">Amount</label>
+<input type="text" formControlName="amount" class="input-box" [ngClass]="{ 'is-invalid': submitted && f.toAccount.errors }" />
+  <div *ngIf="submitted && f.toAccount.errors" class="invalid-feedback">
+      <div *ngIf="f.toAccount.errors.required">To Account is required</div>
+  </div>
+</div>
+
+<div>
+  <button [disabled]="loading" (click)="goto()" class="btn btn-primary" style="margin-top: 1em;">Transfer</button>
+  <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+  
+</div>
+</form>
+</div>

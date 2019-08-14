@@ -1,0 +1,62 @@
+<div class="container">
+    <h2 >Account Summary</h2>
+    <div class="row">
+        <div class="col-md-4 col-sm-12">
+           Account Number:  {{accountSummary.accountNumber}}
+        </div>
+        <div class="col-md-4 col-sm-12">
+           Balance:  {{accountSummary.balance}}
+            
+        </div>
+        <div class="col-md-4 col-sm-12">
+            Account Type: {{accountSummary.accountType}}
+            
+        </div>
+       
+    </div>
+    <button class="btn btn-secondary" (click)="goto()">Fund Transfer</button>
+    <!-- <div *ngFor="let summary of accountSummary">
+        <h5>Account Id:</h5>
+        <p>
+            {{account.accountId}}
+        </p>
+        <h5>Balance Available</h5>
+        <p>
+            {{account.balance}}
+        </p>
+        <h5>Account Type</h5>
+        <p>
+            {{account.accountType}}
+        </p>
+
+    </div>
+    <button class="btn btn-primary" (click)="getBooks()"></button> -->
+    <br/><br/>
+    <h1>Top 10 Transaction Details</h1>
+    <table>
+       
+        <tr>
+            <th>Transaction Date
+            </th>
+            <th>To Account Number
+            </th>
+            <th>Transaction Type
+            </th>
+            <th>Transaction Amount
+
+        </tr>
+        <tr *ngFor="let account of accountHistory">
+            <td>{{account.transactionDate}}
+            </td>
+            <td>{{account.toAccount}}
+            </td>
+            <td>{{account.transactionType}}
+            </td>
+            <td>{{account.amount}}
+            </td>
+        </tr>
+    </table>
+
+  
+
+</div>
